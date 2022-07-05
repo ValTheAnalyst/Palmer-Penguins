@@ -1,5 +1,5 @@
 ---
-title: "penguinPower"
+title: "Palmer Penguins Size Assessment"
 author: "Valarie"
 date: '2022-07-04'
 output:
