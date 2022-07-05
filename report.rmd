@@ -1,0 +1,55 @@
+---
+title: "penguinPower"
+author: "Valarie"
+date: '2022-07-04'
+output:
+  html_document: default
+  pdf_document: default
+---
+
+# Outline
+
+The intention here is to provide a comparative view between **3** different species of penguins:
+
+* Adelie
+* Gentoo
+* Chinstrap
+
+I will begin by setting our environment in R, so that the code chunks can successfully run. 
+
+Then, using our data and respective code chunks, I will provide a plot chart for us to examine trends between the respective penguins and their _flipper length_ to _body mass_ ratio. This information will allow us to determine which species are, on average, smallest or largest.
+
+Finally, I will offer a conclusion given the data we've analyzed in this report.
+
+## Setting the environment
+
+Here, I will be loading in some R packages to assist with the visualization, as well as our dataset itself.
+
+```{r loading packages, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(palmerpenguins)
+```
+
+Now that our packages are installed, let's move on to the chart.
+
+### Creating a plot chart
+
+Here, I will insert a code chunk that creates a solid visual representation of our 3 penguin species and their respective sizes. 
+This chart will utilize both a scatter plot representation and a smooth line graph to help us assess trends.
+
+```{r generate graph, message=FALSE, warning=FALSE}
+ggplot(data=penguins) +
+  geom_smooth(mapping=aes(x=flipper_length_mm, y=body_mass_g), color="black") +
+  geom_point(mapping=aes(x=flipper_length_mm, y=body_mass_g, color=species)) +
+  labs(title="Palmer's Penguins: Flipper Length vs. Body Mass", 
+       subtitle="A comparative view between 3 species",
+       caption="Data from Palmer Penguins dataset")
+```
+
+Here, we can see quite clearly that, in terms of _both_ flipper length and body mass, the Gentoo species is, on average, the largest.
+Chipstrap and Adelie are a bit closer of a matchup, but it would appear that the Adelie species is marginally larger, on average.
+
+#### Conclusion
+
+It is safe to conclude that the Gentoo species is the all around largest species between the 3 populations. I would feel comfortable in claiming that Chinstrap are the smallest across the board, but it is absolutely worth noting how minimal that margin is from the Adelie species.
